@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Formulário</title>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+
+<body>
+
+    <form action="#" name="formulario" method="get">
+        <div class="row">
+            <h1>Formulario</h1>
+
+            <div class="input-field col s2">
+                <p>Real:</p>
+                <input type="text" name="real" placeholder="Ex.: 100" value="">
+            </div>
+
+            <div class="input-field col s2">
+                <p>Dolar:</p>
+                <input type="text" name="dolar" placeholder="Ex.: 100" value="">
+            </div>
+
+            <div class="input-field col s2">
+                <p>Euro:</p>
+                <input type="text" name="euro" placeholder="Ex.: 100" value="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s2">
+                <input type="reset" class="btn" name="limpar" id="limpar" value="Limpar">
+            </div>
+        </div>
+    </form>
+
+    <script>
+        $('[name=real]').keyup(
+            function () {
+                dolar = "$ " + $('[name=real]').val() / 3.96 + " USD";
+                $('[name=dolar]').val(dolar);
+                euro = "€ " + $('[name=real]').val() / 4.45 + " EUR";
+                $('[name=euro]').val(euro);
+            });
+
+        $('[name=dolar]').keyup(
+            function () {
+                real = "R$ " + $('[name=dolar]').val() * 3.96 + " BRL";
+                $('[name=real]').val(real);
+                euro = "€ " + $('[name=dolar]').val() / 1.12 + " EUR";
+                $('[name=euro]').val(euro);
+            });
+
+        $('[name=euro]').keyup(
+            function () {
+                real = "R$ " + $('[name=euro]').val() * 4.45 + " BRL";
+                $('[name=real]').val(real);
+                dolar = "$ " + $('[name=euro]').val() * 1.12 + " USD";
+                $('[name=dolar]').val(dolar);
+            });
+    </script>
+</body>
+
+</html>

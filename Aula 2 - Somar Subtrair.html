@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Aula 2 - Somar Subtrair</title>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+
+<body>
+    <div class="card">
+        <div class="card-content">
+            <h1 class="card-title">Calculadora</h1>
+            <p>Valor Unitario:
+                <span id="valorUnitario">2</span>
+            </p>
+            <p>Quantidade:
+                <span id="quantidade">0</span>
+                <input type="button" name="subtrair" class="btn-small" id="btnSubtrair" value="- 1">
+                <input type="button" name="somar" class="btn-small" id="btnSoma" value="+ 1">
+            </p>
+            <p>Total:
+                <span id="total">0</span>
+            </p>
+            <div class="card">
+                <div class="card-content">
+                    <h3 class="card-title">Histórico
+                        <input type="button" name="limparH" class="btn-small" id="btnLimpar" value="Limpar Histórico">
+                    </h3>
+                    <div id="historico">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <script>
+                $('#btnSoma').click(function () {
+                    var valorUnitario, quantidade, fontSizeAtual;
+                    valorUnitario = $('#valorUnitario').html();
+                    quantidade = $('#quantidade').html();
+                    quantidade++;
+                    $('#quantidade').html(quantidade);
+                    $('#total').html(valorUnitario * quantidade);
+                    $('#historico').prepend(' +1 |');
+
+                    fontSizeAtual = $('#total').css('font-size');
+                    fontSizeAtual = parseFloat(fontSizeAtual);
+                    fontSizeAtual += valorUnitario/10;
+                    $('#total').css('font-size', fontSizeAtual + 'px');
+                });
+                $('#btnSubtrair').click(function () {
+                    var valorUnitario, quantidade, fontSizeAtual;
+                    valorUnitario = $('#valorUnitario').html();
+                    quantidade = $('#quantidade').html();
+
+                    if (quantidade != 0) {
+                        quantidade--;
+                        $('#quantidade').html(quantidade);
+                        $('#total').html(valorUnitario * quantidade);
+                        $('#historico').prepend(' -1 |');
+
+                        fontSizeAtual = $('#total').css('font-size');
+                        fontSizeAtual = parseFloat(fontSizeAtual);
+                        fontSizeAtual -= valorUnitario/10;
+                        $('#total').css('font-size', fontSizeAtual + 'px');
+                    } else {
+                        alert('Não é possivel ter quantidade negativa');
+                    }
+                });
+                $('#btnLimpar').click(function () {
+                    $('#historico').html('');
+                });
+
+            </script>
+        </div>
+    </div>
+</body>
+
+</html>

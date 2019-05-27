@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Formulário</title>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+
+<body>
+    <form action="#" name="formulario" method="get">
+        <h1>Formulario</h1>
+        <div class="row">
+            
+            <div class="input-field col s2">
+                <p>Nome:</p>
+                <input type="text" name="nome" placeholder="Escreva seu primeiro nome..." class="autocomplete">
+            </div>
+
+            <div class="input-field col s2">
+                <p>Sobrenome:</p>
+                <input type="text" name="sobrenome" placeholder="Escreva seu sobrenome." class="autocomplete">
+            </div>
+
+            <div class="input-field col s2">
+                <p>Telefone:</p>
+                <input type="number" name="telefone" placeholder="(__) _____-____" class="autocomplete">
+            </div>
+
+            <div class="input-field col s2">
+                <p>E-Mail:</p>
+                <input type="email" name="email" placeholder="exemplo@dominio.com" class="autocomplete">
+            </div>
+        
+        </div>
+        
+        <div class="row">
+            <div id="buttons" class="input-field col s2">
+                <input type="button" class="btn" name="enviar" id="enviar" value="Enviar">
+                <input type="reset" class="btn" name="limpar" id="limpar" value="Limpar">
+            </div>
+            <div class="row">
+                <div id="resultado">Nome Completo: </div>
+            </div>
+        </div>
+    </form>
+    <script>
+        $('[name=nome],[name=sobrenome]').keyup(
+            function () {
+                resultado = "Nome Completo: " +
+                    $('[name=nome]').val() + " " +
+                    $('[name=sobrenome]').val();
+                $('#resultado').html(resultado);
+            }
+        );
+
+        $('#limpar').click(
+            function () {
+                $('.error').remove();
+            }
+        );
+
+        $('#enviar').click(
+            function () {
+                $('.error').remove();
+                // if (
+                //     ($('[name=nome]').val() == "") ||
+                //     ($('[name=sobrenome]').val() == "") ||
+                //     ($('[name=email]').val() == "") ||
+                //     ($('[name=telefone]').val() == "")
+                // ) {
+                //     $('#buttons').append("<span class='error badge'>Há campo(s) incompletos</span>");
+                //     return false;
+                // }
+
+                resultado = true;
+                if ($('[name=nome]').val() == "") {
+                    $('[name=nome]').after("<span class='error badge'>Campo obrigatorio</span>");
+                    resultado = false;
+                }
+                if ($('[name=sobrenome]').val() == "") {
+                    $('[name=sobrenome]').after("<span class='error badge'>Campo obrigatorio</span>");
+                    resultado = false;
+                }
+                if ($('[name=email]').val() == "") {
+                    $('[name=email]').after("<span class='error badge'>Campo obrigatorio</span>");
+                    resultado = false;
+                }
+                if ($('[name=telefone]').val() == "") {
+                    $('[name=telefone]').after("<span class='error badge'>Campo obrigatorio</span>");
+                    resultado = false;
+                }
+                return resultado;
+            }
+        );
+    </script>
+</body>
+
+</html>

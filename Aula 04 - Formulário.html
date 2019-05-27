@@ -1,0 +1,262 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Formulário</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/nivo-slider.css" type="text/css" />
+    <link rel="stylesheet" href="css/themes/default/default.css" type="text/css" />
+    <link rel="stylesheet" href="css/lightbox.css" type="text/css" />
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="js/jquery.validate.js"></script>
+    <script src="js/lightbox-plus-jquery.js"></script>
+    <script src="js/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+
+
+    <script>
+        $(window).on('load', function () {
+            $('#slider').nivoSlider({
+                effect: 'random',
+                slices: 15,
+                boxCols: 8,
+                boxRows: 4,
+                animSpeed: 500,
+                pauseTime: 3000,
+                startSlide: 0,
+                directionNav: false,
+                controlNav: false,
+                controlNavThumbs: false,
+                pauseOnHover: true,
+                manualAdvance: false,
+                prevText: 'Prev',
+                nextText: 'Next',
+                randomStart: false,
+                beforeChange: function () { },
+                afterChange: function () { },
+                slideshowEnd: function () { },
+                lastSlide: function () { },
+                afterLoad: function () { }
+            });
+        });
+
+        $(document).ready(function () {
+            $("form").validate({
+                rules: {
+                    nome: {
+                        required: true,
+                        minlength: 3,
+                        maxlength: 15
+                    },
+                    sobrenome: {
+                        required: true,
+                        minlength: 5,
+                        maxlength: 20
+                    },
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    telefone: {
+                        required: true
+                    },
+                    senha1: {
+                        equalTo: "#senha"
+                    }
+                },
+                messages: {
+                    senha1: {
+                        equalTo: "Por favor entre com uma senha igual."
+                    }
+                }
+            });
+        });
+    </script>
+
+    <style>
+        .error {
+            color: #990000;
+            margin-left: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+
+    <div class="container bg-white">
+
+        <form id="formCadastro" action="#" name="formulario" method="get">
+
+            <div class="jumbotron text-center">
+
+                <h1 class="text-center p-5">Formulário</h1>
+
+                <div class="slider-wrapper theme-default">
+                    <div id="slider" class="nivoSlider">
+                        <img src="img/nemo.jpg" alt="" />
+                        <a href="http://dev7studios.com">
+                            <img src="img/toystory.jpg" alt="" title="#htmlcaption" />
+                        </a>
+                        <img src="img/up.jpg" alt="" title="This is an example of a caption" />
+                        <img src="img/walle.jpg" alt="" />
+                    </div>
+
+                    <div id="htmlcaption" class="nivo-html-caption">
+                        <div class="p-5">
+                            <strong>This</strong> is an example of a <em>HTML</em> caption with <a href="#">a link</a>.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input class="form-control" type="text" id="nome" name="nome" placeholder="Escreva seu primeiro nome..."
+                    value="" required />
+            </div>
+
+            <div class="form-group">
+                <label for="sobrenome">Sobrenome:</label>
+                <input class="form-control" type="text" id="sobrenome" name="sobrenome"
+                    placeholder="Escreva seu sobrenome." />
+            </div>
+
+            <div class="form-group">
+                <label for="telefone">Telefone:</label>
+                <input class="form-control sp_celphones" type="text" id="telefone" name="telefone"
+                    placeholder="(__) _____-____" />
+            </div>
+
+            <div class="form-group">
+                <label for="email1">E-mail:</lael>
+                    <input class="form-control" id="email1" type="email" name="email"
+                        placeholder="exemplo@dominio.com" />
+            </div>
+
+            <div class="form-group">
+                <label for="senha">Senha:</lael>
+                    <input class="form-control" id="senha" type="password" name="senha" placeholder="" required
+                        minlength="8" />
+            </div>
+
+            <div class="form-group">
+                <label for="senha">Conrfimação:</lael>
+                    <input class="form-control" id="senha1" type="password" name="senha1" placeholder="" required
+                        minlength="8" equalTo="#senha" />
+            </div>
+
+            <input type="submit" class="btn btn-primary btn-block" name="enviar" id="enviar" value="Enviar" />
+            <input type="reset" class="btn btn-danger btn-block" name="cancelar" id="cancelar" value="Cancelar" />
+            <br />
+
+            <div class="card text-center bg-dark" style="margin-bottom:0">
+                <br />
+                <div id="demo" class="carousel slide" data-ride="carousel">
+
+                    <!-- The slideshow -->
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="img/nemo.jpg" alt="nemo">
+                            <div class="carousel-caption">
+                                <h3>nemo</h3>
+                                <p>Texto teste</p>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <img src="img/toystory.jpg" alt="toystory">
+                            <div class="carousel-caption">
+                                <h3>toystory</h3>
+                                <p>Texto teste</p>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <img src="img/up.jpg" alt="up">
+                            <div class="carousel-caption">
+                                <h3>up</h3>
+                                <p>Texto teste</p>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <img src="img/walle.jpg" alt="walle">
+                            <div class="carousel-caption">
+                                <h3>walle</h3>
+                                <p>Texto teste</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Left and right controls -->
+                    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#demo" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </a>
+
+                </div>
+                <br />
+            </div>
+
+            <br />
+            <!-- <div id="resultado">Nome completo: </div> -->
+            <h3>Two Individual Images</h3>
+            <div>
+
+                <a class="example-image-link" href="http://lokeshdhakar.com/projects/lightbox2/images/image-1.jpg"
+                    data-lightbox="example-1"><img class="example-image"
+                        src="http://lokeshdhakar.com/projects/lightbox2/images/thumb-1.jpg" alt="image-1" /></a>
+
+                <a class="example-image-link" href="http://lokeshdhakar.com/projects/lightbox2/images/image-2.jpg"
+                    data-lightbox="example-2" data-title="Optional caption."><img class="example-image"
+                        src="http://lokeshdhakar.com/projects/lightbox2/images/thumb-2.jpg" alt="image-1" /></a>
+
+            </div>
+
+            <hr />
+
+            <h3>A Four Image Set</h3>
+            <div>
+
+                <a class="example-image-link" href="http://lokeshdhakar.com/projects/lightbox2/images/image-3.jpg"
+                    data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img
+                        class="example-image" src="http://lokeshdhakar.com/projects/lightbox2/images/thumb-3.jpg"
+                        alt="" /></a>
+
+                <a class="example-image-link" href="http://lokeshdhakar.com/projects/lightbox2/images/image-4.jpg"
+                    data-lightbox="example-set" data-title="Or press the right arrow on your keyboard."><img
+                        class="example-image" src="http://lokeshdhakar.com/projects/lightbox2/images/thumb-4.jpg"
+                        alt="" /></a>
+
+                <a class="example-image-link" href="http://lokeshdhakar.com/projects/lightbox2/images/image-5.jpg"
+                    data-lightbox="example-set"
+                    data-title="The next image in the set is preloaded as you're viewing."><img class="example-image"
+                        src="http://lokeshdhakar.com/projects/lightbox2/images/thumb-5.jpg" alt="" /></a>
+
+                <a class="example-image-link" href="http://lokeshdhakar.com/projects/lightbox2/images/image-6.jpg"
+                    data-lightbox="example-set"
+                    data-title="Click anywhere outside the image or the X to the right to close."><img
+                        class="example-image" src="http://lokeshdhakar.com/projects/lightbox2/images/thumb-6.jpg"
+                        alt="" /></a>
+
+            </div>
+            <br />
+            <div class="jumbotron text-center" style="margin-bottom:0">
+                <p>Rodapé</p>
+            </div>
+        </form>
+    </div>
+    <script src="js/examples.js"></script>
+    <script src="js/jquery.mask.min.js"></script>
+</body>
+
+</html>

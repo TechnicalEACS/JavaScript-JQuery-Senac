@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Documento JavaScript</title>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',
+                Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+                'Helvetica Neue', sans-serif;
+        }
+
+        h1,
+        h2 {
+            color: #999;
+            font-family: sans-serif;
+        }
+
+        p {
+            font-family: serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Olá Mundo!</h1>
+    <h2>Bem vindo ao curso de JavaScript</h2>
+    <p>Senac Catanduva</p>
+    <input type="button" class="addH1" value="Add H1" />
+
+    <h3>Tamanho da Fonte</h3>
+    <input type="button" class="mudaFonte50" value="50%" />
+    <input type="button" class="mudaFonte100" value="100%" />
+    <input type="button" class="mudaFonte200" value="200%" />
+
+    <h3>Cor do H1</h3>
+    <input type="button" class="h1vermelho" value="Vermelho" />
+    <input type="button" class="h1verde" value="Verde" />
+    <input type="button" class="h1azul" value="Azul" />
+
+    <script>
+        $('p').css('color', '#009');
+
+        $('.h1vermelho').click(
+            function () {
+                $('h1').css('color', '#900');
+            }
+        );
+
+        $('.h1verde').click(
+            function () {
+                $('h1').css('color', '#090');
+            }
+        );
+
+        $('.h1azul').click(
+            function () {
+                $('h1').css('color', '#009');
+            }
+        );
+
+        $('.mudaFonte50').click(
+            function () {
+                $('h1, h2, p').css('fontSize', '50%');
+            }
+        );
+        $('.mudaFonte100').click(
+            function () {
+                $('h1, h2, p').css('fontSize', '100%');
+            }
+        );
+        $('.mudaFonte200').click(
+            function () {
+                $('h1, h2, p').css('fontSize', '200%');
+            }
+        );
+
+        $('.addH1').click(
+            function () {
+                $('h1').append('<br> Olá Mundo!');
+            }
+        );
+
+        $('h1').hover(
+            function () {
+                $('h1').css('color', '#090');
+            }
+        );
+
+        $('h1').mouseout(
+            function () {
+                $('h1').css('color', '#009');
+            }
+        );
+
+    </script>
+</body>
+
+</html>
