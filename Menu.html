@@ -11,9 +11,95 @@
 </head>
 
 <body>
+    <h1 class="text-center">Senac - JavaScript e JQuery</h1>
 
-    <iframe src="" style="border:none;"></iframe>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" id="home" href="#">Home</a>
 
+        <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">Aula 1</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#" id="aula1">JavaScript</a>
+                    <a class="dropdown-item" href="#" id="aula11">JQuery</a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#" id="aula2">Aula 2 - Somar Subtrair</a>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">Aula 3</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#" id="aula3">Aula 3 - Formulario</a>
+                    <a class="dropdown-item" href="#" id="aula32">Aula 3 - Formulario v2</a>
+                    <a class="dropdown-item" href="#" id="aula33">Aula 3 - Conversão</a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#" id="aula4">Aula 04 - Formulário</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#" id="aula6">Aula 06 - Formulário</a>
+            </li>
+        </ul>
+    </nav>
+    <iframe src="" style="border:none;height:670px;width:100%;"></iframe>
+
+    <script>
+        $('#home').click(
+            function () {
+                $('iframe').attr('src', '')
+            }
+        );
+
+        $('#aula1').click(
+            function () {
+                $('iframe').attr('src', 'Aula1.html')
+            }
+        );
+        $('#aula11').click(
+            function () {
+                $('iframe').attr('src', 'Aula1-jquery.html')
+            }
+        );
+        $('#aula2').click(
+            function () {
+                $('iframe').attr('src', 'Aula 2 - Somar Subtrair.html')
+            }
+        );
+        $('#aula3').click(
+            function () {
+                $('iframe').attr('src', 'Aula 3 - Formulario.html')
+            }
+        );
+        $('#aula32').click(
+            function () {
+                $('iframe').attr('src', 'Aula 3 - Formulario2.html')
+            }
+        );
+        $('#aula33').click(
+            function () {
+                $('iframe').attr('src', 'Aula 3 - Conversao.html')
+            }
+        );
+        $('#aula4').click(
+            function () {
+                $('iframe').attr('src', 'Aula 04 - Formulário.html')
+            }
+        );
+        $('#aula6').click(
+            function () {
+                $('iframe').attr('src', 'Aula 06 - Formulário.html')
+            }
+        );
+    </script>
 </body>
 
 </html>
